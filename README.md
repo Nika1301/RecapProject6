@@ -15,7 +15,7 @@ In this project you will build a Tourio App, the best friend of all travelers: i
 - In `pages/create.js`, write the `addPlace` function to start a `POST` request.
 - Write the `POST` API route in `pages/api/places/index.js`.
 - Submitting the form should redirect the user to the homepage `/`.
-
+ne
 ### Update Entry
 
 - In `pages/places/[id]/edit.js`, write the `editPlace` function to start a `PATCH` request.
