@@ -1,4 +1,4 @@
-import Link from "next/link.js";
+  import Link from "next/link.js";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import Form from "../components/Form.js";
@@ -21,8 +21,9 @@ export default function CreatePlacePage() {
       body: JSON.stringify(place),
     });
     if (!response.ok) {
-      console.log("Place added (but not really...)");
+      console.log("Error, somethin go wrong...)");
     }
+
     router.push("/");
   }
   return (

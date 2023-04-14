@@ -12,16 +12,18 @@ export default function EditPage() {
 
   async function editPlace(place) {
     console.log("Place edited ...");
-    const response = await fetch("/api/places/${id}", {
+    const response = await fetch(`/api/places/${id}`, {
       method: "PATCH",
+      body: JSON.stringify(place),
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(place),
     });
+
     if (!response.ok) {
       console.error(`Error: ${response.status}`);
     }
+    router.push(`/places/${id}`);
   }
 
   if (!isReady || isLoading || error) return <h2>Loading...</h2>;

@@ -1,4 +1,3 @@
-// import { places } from '../../../lib/db';
 import dbConnect from "../../../db/connect";
 import Place from "../../../db/models/Place";
 
@@ -11,10 +10,14 @@ export default async function handler(request, response) {
   }
 
   if (request.method === "POST") {
-    const placeData = request.body;
-    const newPlace = new Place(placeData);
-    await newPlace.save();
-    response.status(201).json({ status: "Created Place" });
+    try {
+      const placeData = request.body;
+      const newPlace = new Place(placeData);
+      await newPlace.save();
+      response.status(201).json({ status: "Created Place" });
+    } catch (error) {
+      response.status(400).json({ error: error.message });
+    }
   }
-  
+
 }
